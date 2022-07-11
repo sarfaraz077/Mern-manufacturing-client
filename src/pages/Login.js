@@ -16,6 +16,7 @@ import { Link } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
 
 import "react-toastify/dist/ReactToastify.css";
+import LoginLoding from "../shared/LoginLoding";
 
 const Login = () => {
   const [showPass, setShowPass] = useState(false);
@@ -36,6 +37,13 @@ const Login = () => {
 
   let backendError;
 
+  // for loading:
+
+  if (loading || googleLoading) {
+    return <LoginLoding></LoginLoding>;
+  }
+
+  // for error:
   if (googleError || error) {
     backendError = (
       <span className="text-red-500">

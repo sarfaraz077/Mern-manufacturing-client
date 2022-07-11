@@ -1,0 +1,12 @@
+.login {
+  border-radius: 10px;
+  background: #e0e0e0;
+  box-shadow: 2px 2px 2px #c7c7c7, -2px -2px 2px #f9f9f9;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  -ms-border-radius: 10px;
+  -o-border-radius: 10px;
+}
+.error-message::before {
+  content: "❌ ";
+}

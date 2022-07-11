@@ -1,21 +1,24 @@
 import React from "react";
 import hero from "../assets/hero.svg";
+import TypeWriter from "react-typewriter";
 
 const Hero = () => {
   return (
     <>
-      <div class="hero min-h-screen">
+      <div class="hero min-h-screen ">
         <div class="hero-content flex-col-reverse gap-7 lg:flex-row-reverse">
           <img src={hero} class="lg:max-w-lg " alt="" />
           <div>
-            <h1
-              class="text-3xl lg:text-5xl font-bold"
-              data-aos="fade-right"
-              data-aos-delay="1000"
-              data-aos-duration="1000"
-            >
-              Box Office News!
-            </h1>
+            <TypeWriter typing={1}>
+              <h1
+                class="text-3xl lg:text-5xl font-bold"
+                data-aos="fade-right"
+                data-aos-delay="1000"
+                data-aos-duration="1000"
+              >
+                Box Office News!
+              </h1>
+            </TypeWriter>
             <p
               className="text-xl mb-3"
               data-aos="fade-right"

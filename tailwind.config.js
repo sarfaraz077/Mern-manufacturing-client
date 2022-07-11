@@ -37,6 +37,7 @@ module.exports = {
           success: "#1BBB70",
           warning: "#DF7E07",
           error: "#FA5C5C",
+          font: "#142952",
         },
       },
     ],

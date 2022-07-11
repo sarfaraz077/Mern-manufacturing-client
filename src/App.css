@@ -54,6 +54,10 @@ p {
   color: var(--nav-logo-clr) !important;
 }
 
+.bg-business {
+  background: var(--business-bg-clr) !important;
+}
+
 .dark-sub-logo,
 .divider-dark {
   color: var(--nav-logo-sub-clr) !important;
@@ -98,7 +102,8 @@ a.light,
 .dark-nav-logo-clr.light,
 .dark-nav-logo-clr.light,
 .login-text.light,
-p.light {
+p.light,
+.bg-business.light {
   --background-color: #dbdbdb !important;
   --text-color: #2b2b2b !important;
   --font-weight: 400 !important;
@@ -116,6 +121,7 @@ p.light {
   --nav-logo-sub-clr: #22262a !important;
   --a-font-weight: 600 !important;
   --login-text-clr: #222 !important;
+  --business-bg-clr: #142850 !important;
 }
 
 body.dark,
@@ -132,7 +138,8 @@ a.dark,
 a.dark,
 .dark-nav-logo-clr.dark,
 .divider-dark.dark,
-p.dark {
+p.dark,
+.bg-business.dark {
   --background-color: #142850 !important;
   --text-color: var(--text-clr) !important;
   --font-weight: 500 !important;
@@ -150,4 +157,5 @@ p.dark {
   --nav-logo-sub-clr: #fff !important;
   --login-text-clr: #fff !important;
   --p-text-clr: #999 !important;
+  --business-bg-clr: #1b1b41 !important;
 }

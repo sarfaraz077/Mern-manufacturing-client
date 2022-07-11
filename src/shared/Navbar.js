@@ -13,7 +13,7 @@ const Navbar = ({ children }) => {
     <div class="drawer drawer-end ">
       <input id="my-drawer-3" type="checkbox" class="drawer-toggle" />
       <div class="drawer-content flex flex-col ">
-        <div class="w-full navbar sticky top-0 z-10 bg-base-100 backdrop-filter backdrop-blur-lg bg-opacity-30  border-b border-gray-200  lg:px-20">
+        <div class="w-full navbar sticky top-0 z-40 bg-base-100 backdrop-filter backdrop-blur-lg bg-opacity-30  border-b border-gray-200  lg:px-20">
           <div class="flex-1 px-2 mx-2 items-center">
             <span className="text-2xl text-primary font-bold dark-nav-logo-clr">
               Clean

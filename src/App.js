@@ -12,6 +12,7 @@ import { useEffect, useState } from "react";
 // for aos animation:
 import AOS from "aos";
 import "aos/dist/aos.css";
+import SignUp from "./pages/SignUp";
 function App() {
   const [loading, setLoading] = useState(true);
   const spinner = document.getElementById("spinner");
@@ -37,6 +38,7 @@ function App() {
           <Route path="/" element={<Home></Home>}></Route>
           <Route path="/about" element={<About></About>}></Route>
           <Route path="/login" element={<Login></Login>}></Route>
+          <Route path="/signup" element={<SignUp></SignUp>}></Route>
           <Route path="/services" element={<Services></Services>}></Route>
         </Routes>
       </div>

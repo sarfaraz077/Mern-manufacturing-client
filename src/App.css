@@ -99,8 +99,8 @@ a.light,
 .dark-nav-logo-clr.light,
 .login-text.light,
 p.light {
-  --background-color: var(--white) !important;
-  --text-color: var(--text-clr) !important;
+  --background-color: #dbdbdb !important;
+  --text-color: #2b2b2b !important;
   --font-weight: 400 !important;
   --border-btn: none !important;
   --btn-text-clr: var(--white) !important;

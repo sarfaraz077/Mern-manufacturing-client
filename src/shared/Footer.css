@@ -1,0 +1,61 @@
+.footer-bg {
+  background: url("../assets/Business/wave.svg") no-repeat center center/cover !important;
+  /* background-repeat: no-repeat !important;
+  background-position: center !important;
+  background-size: 100% !important; */
+}
+.fb,
+.insta {
+  transition: all 1s;
+  -webkit-transition: all 1s;
+  -moz-transition: all 1s;
+  -ms-transition: all 1s;
+  -o-transition: all 1s;
+}
+
+.fb:hover,
+.insta:hover {
+  cursor: pointer;
+  z-index: 1000;
+  transform: scale(1.5);
+  -webkit-transform: scale(1.5);
+  -moz-transform: scale(1.5);
+  -ms-transform: scale(1.5);
+  -o-transform: scale(1.5);
+}
+
+.fb:hover {
+  font-size: 3em;
+  filter: drop-shadow(0 0 20px #1877f2) drop-shadow(0 0 40px #1877f2)
+    drop-shadow(0 0 60px #1877f2);
+  -webkit-filter: drop-shadow(0 0 20px #1877f2) drop-shadow(0 0 40px #1877f2)
+    drop-shadow(0 0 60px #1877f2);
+}
+
+.insta:hover {
+  font-size: 3em;
+  filter: drop-shadow(0 0 20px #c32aa3) drop-shadow(0 0 40px #c32aa3)
+    drop-shadow(0 0 60px #c32aa3);
+  -webkit-filter: drop-shadow(0 0 20px #c32aa3) drop-shadow(0 0 40px #c32aa3)
+    drop-shadow(0 0 60px #c32aa3);
+}
+/* 
+.footer-title {
+  font-size: 4rem;
+  color: #ff4da6;
+
+  text-align: center;
+  -webkit-animation: glow 1s ease-in-out infinite alternate;
+  -moz-animation: glow 1s ease-in-out infinite alternate;
+  animation: glow 1s ease-in-out infinite alternate;
+}
+@keyframes glow {
+  from {
+    text-shadow: 0 0 10px #eeeeee, 0 0 20px #000000, 0 0 30px #000000,
+      0 0 40px #000000, 0 0 50px #9554b3, 0 0 60px #9554b3, 0 0 70px #9554b3;
+  }
+  to {
+    text-shadow: 0 0 20px #eeeeee, 0 0 30px #ff4da6, 0 0 40px #ff4da6,
+      0 0 50px #ff4da6, 0 0 60px #ff4da6, 0 0 70px #ff4da6, 0 0 80px #ff4da6;
+  }
+} */

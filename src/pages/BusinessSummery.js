@@ -26,8 +26,7 @@ const BusinessSummery = () => {
           <span
             style={{
               fontSize: "68px",
-              backgroundImage:
-                "linear-gradient(135deg, #536976 10%, #292E49 100%)",
+              backgroundImage: "linear-gradient(to right, #ba81cf, #6886d4)",
               "-webkit-background-clip": "text",
               "-webkit-text-fill-color": "transparent",
             }}
@@ -67,7 +66,7 @@ const BusinessSummery = () => {
               <BiWorld className=" text-5xl mx-auto mb-3"></BiWorld>
 
               <h3 class="text-4xl text-center">
-                <CountUp start={0} end={70} duration={7}></CountUp>
+                <CountUp start={0} end={70} duration={8}></CountUp>
               </h3>
               <span className="text-[#333] text-center font-bold text-2xl">
                 Countries
@@ -105,7 +104,7 @@ const BusinessSummery = () => {
               <BsFillPeopleFill className=" text-5xl mx-auto mb-3"></BsFillPeopleFill>
 
               <h3 class="text-4xl text-center">
-                <CountUp start={0} end={1200} duration={7}></CountUp>
+                <CountUp start={0} end={1200} duration={8}></CountUp>
               </h3>
               <span className="text-[#333] font-bold text-2xl text-center">
                 Happy Clients
@@ -141,7 +140,7 @@ const BusinessSummery = () => {
             <div class="card-body w-full">
               <RiComputerFill className=" text-5xl mx-auto mb-3"></RiComputerFill>
               <h3 class="text-4xl text-center">
-                <CountUp start={0} end={900} duration={7}></CountUp>
+                <CountUp start={0} end={900} duration={8}></CountUp>
               </h3>
               <span className="text-[#333] text-center font-bold text-2xl">
                 Successful projects

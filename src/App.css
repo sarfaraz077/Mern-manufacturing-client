@@ -76,10 +76,6 @@ p {
   background-color: var(--header-bg-clr) !important;
 }
 
-.footer {
-  background: var(--footer-bg-clr) !important;
-}
-
 h1,
 h2,
 h4,
@@ -87,6 +83,10 @@ h5,
 h6 {
   color: var(--heading-clr) !important;
 }
+
+/* footer {
+  background-color: var(--footer-bg-clr) !important;
+} */
 
 body.light,
 .btn.light,

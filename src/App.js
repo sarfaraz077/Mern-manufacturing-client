@@ -15,6 +15,8 @@ import "aos/dist/aos.css";
 import SignUp from "./pages/SignUp";
 import Dashboard from "./pages/Dashboard/Dashboard";
 import MyProfile from "./pages/Dashboard/MyProfile";
+import NotFound from "./shared/NotFound";
+import Blog from "./shared/Blog";
 function App() {
   const [loading, setLoading] = useState(true);
   const spinner = document.getElementById("spinner");
@@ -46,6 +48,10 @@ function App() {
             {/* nested route */}
             <Route path="my-profile" element={<MyProfile></MyProfile>}></Route>
           </Route>
+
+          <Route path="/blogs" element={<Blog></Blog>}></Route>
+
+          <Route path="*" element={<NotFound></NotFound>}></Route>
         </Routes>
       </div>
     )

@@ -6,7 +6,8 @@ import { useEffect } from "react";
 import DarkMode from "./DarkMode";
 import auth from "../firebase/firebase.init";
 import { useAuthState } from "react-firebase-hooks/auth";
-import { useLocation } from "react-router-dom";
+import { useLocation, Link } from "react-router-dom";
+import { signOut } from "firebase/auth";
 
 const Navbar = ({ children }) => {
   const [user] = useAuthState(auth);
@@ -75,19 +76,28 @@ const Navbar = ({ children }) => {
                   About
                 </NavLink>
               </li>
-
               <li>
                 <NavLink to="/services" className="rounded-lg ">
                   Services
                 </NavLink>
               </li>
-
-              <li>
-                <NavLink to="/login" className="rounded-lg ">
-                  Login
-                </NavLink>
-              </li>
-
+              {!user ? (
+                <li>
+                  <NavLink to="/login" className="rounded-lg ">
+                    Login
+                  </NavLink>
+                </li>
+              ) : (
+                <li>
+                  <button
+                    to=""
+                    className="rounded-lg btn btn-primary "
+                    onClick={() => signOut(auth)}
+                  >
+                    LogOut
+                  </button>
+                </li>
+              )}
               {user && (
                 <li>
                   <NavLink to="/dashboard" className="rounded-lg ">
@@ -95,7 +105,6 @@ const Navbar = ({ children }) => {
                   </NavLink>
                 </li>
               )}
-
               <li>
                 <DarkMode></DarkMode>
               </li>
@@ -139,11 +148,23 @@ const Navbar = ({ children }) => {
             </NavLink>
           </li>
 
-          <li>
-            <NavLink to="/login" className="rounded-lg ">
-              Login
-            </NavLink>
-          </li>
+          {!user ? (
+            <li>
+              <NavLink to="/login" className="rounded-lg ">
+                Login
+              </NavLink>
+            </li>
+          ) : (
+            <li>
+              <button
+                to=""
+                className="rounded-lg btn btn-primary "
+                onClick={() => signOut(auth)}
+              >
+                LogOut
+              </button>
+            </li>
+          )}
 
           {user && (
             <li>

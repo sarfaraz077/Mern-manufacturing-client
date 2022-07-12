@@ -13,6 +13,7 @@ import { useEffect, useState } from "react";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import SignUp from "./pages/SignUp";
+import Dashboard from "./pages/Dashboard/Dashboard";
 function App() {
   const [loading, setLoading] = useState(true);
   const spinner = document.getElementById("spinner");
@@ -40,6 +41,7 @@ function App() {
           <Route path="/login" element={<Login></Login>}></Route>
           <Route path="/signup" element={<SignUp></SignUp>}></Route>
           <Route path="/services" element={<Services></Services>}></Route>
+          <Route path="/dashboard" element={<Dashboard></Dashboard>}></Route>
         </Routes>
       </div>
     )

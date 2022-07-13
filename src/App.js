@@ -17,6 +17,11 @@ import Dashboard from "./pages/Dashboard/Dashboard";
 import MyProfile from "./pages/Dashboard/MyProfile";
 import NotFound from "./shared/NotFound";
 import Blog from "./shared/Blog";
+
+import Parts from "./pages/parts/Parts";
+import Part from "./pages/parts/Part";
+import AllParts from "./pages/parts/AllParts";
+import SinglePart from "./pages/parts/SinglePart";
 function App() {
   const [loading, setLoading] = useState(true);
   const spinner = document.getElementById("spinner");
@@ -50,6 +55,8 @@ function App() {
           </Route>
 
           <Route path="/blogs" element={<Blog></Blog>}></Route>
+          <Route path="/parts" element={<AllParts></AllParts>}></Route>
+          <Route path="/part/:id" element={<SinglePart></SinglePart>}></Route>
 
           <Route path="*" element={<NotFound></NotFound>}></Route>
         </Routes>

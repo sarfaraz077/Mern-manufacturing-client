@@ -1,7 +1,9 @@
 import React from "react";
 import { useQuery } from "react-query";
+import { Link } from "react-router-dom";
 import LoginLoding from "../../shared/LoginLoding";
 import Part from "./Part";
+import SinglePart from "./SinglePart";
 
 const Parts = () => {
   const {
@@ -9,7 +11,7 @@ const Parts = () => {
 
     data: parts,
   } = useQuery(["part", "parts"], () =>
-    fetch("products.json").then((res) => res.json())
+    fetch(`http://localhost:5000/part`).then((res) => res.json())
   );
   if (isLoading) {
     return <LoginLoding></LoginLoding>;
@@ -22,6 +24,12 @@ const Parts = () => {
         {parts?.map((part) => (
           <Part key={part?._id} part={part}></Part>
         ))}
+      </div>
+
+      <div className="flex items-center justify-center my-7">
+        <Link className="btn" to="/parts">
+          More Tools
+        </Link>
       </div>
     </>
   );

@@ -11,7 +11,9 @@ const Parts = () => {
 
     data: parts,
   } = useQuery(["part", "parts"], () =>
-    fetch(`http://localhost:5000/part`).then((res) => res.json())
+    fetch(`https://limitless-ocean-30960.herokuapp.com/part`).then((res) =>
+      res.json()
+    )
   );
   if (isLoading) {
     return <LoginLoding></LoginLoding>;

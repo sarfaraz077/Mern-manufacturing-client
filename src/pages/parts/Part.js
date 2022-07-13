@@ -8,7 +8,7 @@ const Part = ({ part }) => {
   return (
     <div>
       <div
-        class="card sm:max-w-sm lg:max-w-lg bg-clip-padding backdrop-filter  backdrop-blur-xl bg-opacity-60 border border-gray-200 text-primary-content header "
+        class="card login sm:max-w-sm lg:max-w-lg bg-clip-padding backdrop-filter  backdrop-blur-xl bg-opacity-60 border border-gray-200 text-primary-content header "
         style={{ backdropFilter: "blur(20px)" }}
       >
         <div class="card-body">

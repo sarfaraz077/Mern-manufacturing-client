@@ -1,6 +1,7 @@
 [
   {
     "id": 1,
+    "description": "XPART submersible pump is a mechanical equipment that works by pushing the water toward the surface instead of pulling it.a",
     "name": "Headlights",
     "price": "$102",
     "stock": "500",
@@ -9,6 +10,7 @@
   },
   {
     "id": 2,
+    "description": "XPART submersible pump is a mechanical equipment that works by pushing the water toward the surface instead of pulling it.",
     "name": "Front Fenders",
     "price": "$205",
     "stock": "500",
@@ -17,6 +19,7 @@
   },
   {
     "id": 3,
+    "description": "XPART submersible pump is a mechanical equipment that works by pushing the water toward the surface instead of pulling it.",
     "name": "Lowering Kits",
     "price": "$502",
     "stock": "500",

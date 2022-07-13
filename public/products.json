@@ -1,0 +1,26 @@
+[
+  {
+    "id": 1,
+    "name": "Headlights",
+    "price": "$102",
+    "stock": "500",
+    "Minimum order": "10",
+    "img": "https://i.ibb.co/ynLxBzn/pd1.png"
+  },
+  {
+    "id": 2,
+    "name": "Front Fenders",
+    "price": "$205",
+    "stock": "500",
+    "Minimum order": "10",
+    "img": "https://i.ibb.co/NCLHdYY/pd2.jpg"
+  },
+  {
+    "id": 3,
+    "name": "Lowering Kits",
+    "price": "$502",
+    "stock": "500",
+    "Minimum order": "10",
+    "img": "https://i.ibb.co/4sbwWz9/pd3.png"
+  }
+]

@@ -8,6 +8,7 @@ import auth from "../firebase/firebase.init";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { useLocation, Link } from "react-router-dom";
 import { signOut } from "firebase/auth";
+import logo from "../assets/logo.png";
 
 const Navbar = ({ children }) => {
   const [user] = useAuthState(auth);

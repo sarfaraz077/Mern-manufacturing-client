@@ -19,7 +19,7 @@ const Blog = () => {
   return (
     <>
       <Navbar>
-        <div class="card lg:max-w-lg  sm:max-w-sm header shadow-xl mx-auto mt-[10%]">
+        <div class="card lg:max-w-lg  sm:max-w-sm header shadow-xl mx-auto mt-[10%] ">
           <div className="card-body ">
             <div>
               <div className="flex items-center gap-5">

@@ -9,19 +9,22 @@ import Footer from "../../shared/Footer";
 const Dashboard = () => {
   const [user] = useAuthState(auth);
   return (
-    <>
+    <div>
       <Navbar>
         <div class="drawer drawer-mobile">
           <input id="my-drawer-2" type="checkbox" class="drawer-toggle" />
-          <div class="drawer-content flex h-[50%] flex-col items-center justify-center">
+          <div class="drawer-content flex h-[100%] flex-col items-center justify-center">
             {/* <!-- Page content here --> */}
-            <h1 className="text-center lg:text-2xl">
-              Hey,
-              <span className="text-success font-bold tracking-widest">
-                {user?.email}
-              </span>
-              Welcome to Your dashboard
-            </h1>
+            <div>
+              <h1 className="text-center lg:text-2xl ">
+                Hey,
+                <span className="text-success font-bold tracking-widest">
+                  {user?.email}
+                </span>
+                Welcome to Your dashboard
+              </h1>
+            </div>
+
             <Outlet></Outlet>
           </div>
           <div class="drawer-side">
@@ -32,14 +35,16 @@ const Dashboard = () => {
                 <Link to="/dashboard/my-profile">My profile</Link>
               </li>
               <li>
-                <a>Sidebar Item 2</a>
+                <Link to="/dashboard/add-review">Add a Review</Link>
+              </li>
+              <li>
+                <Link to="/dashboard/my-orders">My Orders</Link>
               </li>
             </ul>
           </div>
         </div>
       </Navbar>
-      <Footer></Footer>
-    </>
+    </div>
   );
 };
 

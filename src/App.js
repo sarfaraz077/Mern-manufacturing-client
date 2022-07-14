@@ -23,6 +23,8 @@ import Part from "./pages/parts/Part";
 import AllParts from "./pages/parts/AllParts";
 import SinglePart from "./pages/parts/SinglePart";
 import RequireAuth from "./shared/RequireAuth";
+import AddReview from "./pages/Dashboard/AddReview";
+import MyOrders from "./pages/Dashboard/MyOrders";
 function App() {
   const [loading, setLoading] = useState(true);
   const spinner = document.getElementById("spinner");
@@ -60,6 +62,8 @@ function App() {
           >
             {/* nested route */}
             <Route path="my-profile" element={<MyProfile></MyProfile>}></Route>
+            <Route path="add-review" element={<AddReview></AddReview>}></Route>
+            <Route path="my-orders" element={<MyOrders></MyOrders>}></Route>
           </Route>
 
           <Route path="/blogs" element={<Blog></Blog>}></Route>

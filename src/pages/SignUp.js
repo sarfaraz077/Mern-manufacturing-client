@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 
 import Navbar from "../shared/Navbar";
 
@@ -16,9 +16,8 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import LoginLoding from "../shared/LoginLoding";
 import authentication from "../assets/authentication.svg";
+import useToken from "../hooks/useToken";
 const SignUp = () => {
-  const navigate = useNavigate();
-  const location = useLocation();
   const [showPass, setShowPass] = useState(false);
   const [signInWithGoogle, googleUser, googleLoading, googleError] =
     useSignInWithGoogle(auth);
@@ -31,6 +30,19 @@ const SignUp = () => {
     handleSubmit,
     reset,
   } = useForm();
+
+  const navigate = useNavigate();
+  const location = useLocation();
+
+  const [token] = useToken(user || googleUser);
+  // for redirecting:
+
+  const from = location.state?.from?.pathname || "/";
+  useEffect(() => {
+    if (token) {
+      navigate(from, { replace: true });
+    }
+  }, [token, navigate, from]);
   const onSubmit = (data) => {
     createUserWithEmailAndPassword(data?.email, data?.password);
 
@@ -45,14 +57,6 @@ const SignUp = () => {
         <small>{googleError?.message || error?.message}</small>
       </span>
     );
-  }
-
-  // for redirecting:
-
-  const from = location.state?.from?.pathname || "/";
-
-  if (googleUser || user) {
-    navigate(from, { replace: true });
   }
 
   // for loading:

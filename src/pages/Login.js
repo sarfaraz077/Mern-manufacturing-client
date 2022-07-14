@@ -17,10 +17,9 @@ import { ToastContainer, toast } from "react-toastify";
 
 import "react-toastify/dist/ReactToastify.css";
 import LoginLoding from "../shared/LoginLoding";
+import useToken from "../hooks/useToken";
 
 const Login = () => {
-  const navigate = useNavigate();
-  const location = useLocation();
   const [showPass, setShowPass] = useState(false);
 
   const [signInWithGoogle, googleUser, googleLoading, googleError] =
@@ -31,6 +30,17 @@ const Login = () => {
 
   const [sendPasswordResetEmail, sending, passwordResetError] =
     useSendPasswordResetEmail(auth);
+  const navigate = useNavigate();
+  const location = useLocation();
+  const [token] = useToken(user || googleUser);
+  // for redirecting:
+
+  const from = location.state?.from?.pathname || "/";
+  useEffect(() => {
+    if (token) {
+      navigate(from, { replace: true });
+    }
+  }, [from, token, navigate]);
   const {
     register,
     formState: { errors },
@@ -54,13 +64,6 @@ const Login = () => {
     );
   }
 
-  // for redirecting:
-
-  const from = location.state?.from?.pathname || "/";
-
-  if (googleUser || user) {
-    navigate(from, { replace: true });
-  }
   const onSubmit = (data) => {
     signInWithEmailAndPassword(data?.email, data?.password);
 

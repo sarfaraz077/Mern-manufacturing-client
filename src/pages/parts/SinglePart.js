@@ -23,9 +23,17 @@ const SinglePart = () => {
   const [singlePart, setSinglePart] = useState({});
 
   useEffect(() => {
-    fetch(`https://limitless-ocean-30960.herokuapp.com/part/${id}`)
+    fetch(`http://localhost:5000/part/${id}`, {
+      method: "GET",
+      headers: {
+        "content-type": "application/json",
+        authorization: `Bearer ${localStorage.getItem("accessToken")}`,
+      },
+    })
       .then((res) => res.json())
-      .then((data) => setSinglePart(data));
+      .then((data) => {
+        setSinglePart(data);
+      });
   }, [id]);
 
   if (!singlePart) {
@@ -89,6 +97,7 @@ const SinglePart = () => {
             `${data.email} purchase Successfully ${singlePart?.name}`,
             { id: "purchse-1" }
           );
+          event.target.reset();
         }
       });
   };
@@ -222,7 +231,7 @@ const SinglePart = () => {
                     <input
                       className="w-full h-10 px-4 text-sm peer bg-gray-100 outline-none mt-5"
                       placeholder="Contact Number"
-                      type="text"
+                      type="number"
                       class="input input-bordered w-full max-w-xs"
                       name="number"
                       required

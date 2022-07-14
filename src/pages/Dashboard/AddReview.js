@@ -1,8 +1,17 @@
 import React, { useState } from "react";
 import { AiFillStar, AiOutlineStar } from "react-icons/ai";
 import Footer from "../../shared/Footer";
+import Card from "react-animated-3d-card";
 import "./addReview.module.css";
+import auth from "../../firebase/firebase.init";
+import { useAuthState } from "react-firebase-hooks/auth";
+import { ToastContainer, toast } from "react-toastify";
+
+import "react-toastify/dist/ReactToastify.css";
+import { useQuery } from "react-query";
+
 const AddReview = () => {
+  const [user] = useAuthState(auth);
   const [number, setNumber] = useState(0);
   const [hoverStar, setHoverStar] = useState(undefined);
   //   console.log(number, hoverStar);
@@ -43,7 +52,33 @@ const AddReview = () => {
   const handleStarSubmit = (event) => {
     event.preventDefault();
     const ratingNumber = number;
-    console.log(ratingNumber);
+    const currentEmail = user?.email;
+    const textArea = event.target?.rev?.value;
+
+    const reviewData = {
+      ratingNumber: ratingNumber,
+      currentEmail: currentEmail,
+      textArea: textArea,
+    };
+
+    fetch(`http://localhost:5000/add-review/${currentEmail}`, {
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+        authorization: `Bearer ${localStorage.getItem("accessToken")}`,
+      },
+      body: JSON.stringify(reviewData),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        if (number === 0) {
+          toast.info(`Hey!${user?.email} fellas kindly add some star!`);
+        }
+        if (data.insertedId) {
+          toast.success(`Thank You ${user?.email} for your review!🤗`);
+        }
+        console.log(data);
+      });
   };
   return (
     <div className="header lg:max-w-lg rounded-xl p-20">
@@ -70,21 +105,38 @@ const AddReview = () => {
               )
             )}
         </div>
-        <textarea
-          class="textarea textarea-info lg:w-[50vh] w-[25vh]"
-          placeholder={handlePlaceHolder()}
-        ></textarea>
-
         <form onSubmit={handleStarSubmit}>
-          <button
-            className={` ${
-              !number && "disabled"
-            } review-button btn btn-primary mt-5`}
-          >
-            Submit
-          </button>
+          <p>
+            <textarea
+              class="textarea textarea-info lg:w-[50vh] w-[25vh]"
+              placeholder={handlePlaceHolder()}
+              name="rev"
+            ></textarea>
+          </p>
+
+          <p>
+            {" "}
+            <button
+              className={` ${
+                !number && "disabled"
+              } review-button btn btn-primary mt-5 text-center`}
+            >
+              Submit
+            </button>
+          </p>
         </form>
       </div>
+      <ToastContainer
+        position="bottom-center"
+        autoClose={5000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+      ></ToastContainer>
     </div>
   );
 };

@@ -13,15 +13,11 @@ import { FaGoogle } from "react-icons/fa";
 import { FiLogIn } from "react-icons/fi";
 
 import { useForm } from "react-hook-form";
+import { useQuery } from "react-query";
 
 const SinglePart = () => {
   const [submitQuantity, setSubmitQuantity] = useState(0);
-  const {
-    register,
-    formState: { errors },
-    handleSubmit,
-    reset,
-  } = useForm();
+
   const [user] = useAuthState(auth);
   const { id } = useParams();
   const [singlePart, setSinglePart] = useState({});
@@ -59,11 +55,46 @@ const SinglePart = () => {
     }
   };
 
-  const onSubmit = (data) => {
-    console.log(data);
+  const handleSubmitProductForm = (event) => {
+    event.preventDefault();
+    const email = event.target.email.value;
+    const name = event.target.name.value;
+    const quantity = event.target.quantity.value;
+    const price = event.target.price.value;
+    const address = event.target.address.value;
+    const number = event.target.number.value;
+
+    const data = {
+      email: email,
+      name: name,
+      quantity: quantity,
+      price: price,
+      address: address,
+      number: number,
+      product: singlePart?.name,
+    };
+
+    fetch("http://localhost:5000/part", {
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(data),
+    })
+      .then((res) => res.json())
+      .then((purchaseData) => {
+        console.log(purchaseData);
+        if (purchaseData.insertedId && (address || number)) {
+          toast.success(
+            `${data.email} purchase Successfully ${singlePart?.name}`,
+            { id: "purchse-1" }
+          );
+        }
+      });
   };
-  console.log(parseInt(submitQuantity));
-  console.log(singlePart?.MinimumOrder * singlePart?.price);
+
+  // console.log(parseInt(submitQuantity));
+  // console.log(singlePart?.MinimumOrder * singlePart?.price);
 
   return (
     <div>
@@ -128,7 +159,7 @@ const SinglePart = () => {
                   Purchase Form
                 </p>
                 <form
-                  onSubmit={handleSubmit(onSubmit)}
+                  onSubmit={handleSubmitProductForm}
                   className=" w-full max-w-xs px-5 py-5"
                 >
                   <input
@@ -137,69 +168,32 @@ const SinglePart = () => {
                     class="input input-bordered w-full max-w-xs input-border-style"
                     value={user?.displayName ? user?.displayName : ""}
                     disabled
-                    {...register("name", {
-                      required: {
-                        value: true,
-                        message: "Name is required",
-                      },
-                      minLength: {
-                        value: 6,
-                        message: "Name must be at least six character",
-                      },
-                    })}
+                    name="name"
                   />
 
                   <p className="mt-3">
                     <input
-                      className="input input-bordered w-full max-w-xs input-border-style "
-                      {...register("email", {
-                        required: {
-                          value: true,
-                          message: "Email is required",
-                        },
-                        pattern: {
-                          value:
-                            /^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/,
-                          message: "Please provide a valid email address",
-                        },
-                      })}
-                      placeholder="Email"
                       type="email"
+                      placeholder="Email"
                       class="input input-bordered w-full max-w-xs"
-                      value={user?.email && user?.email}
-                      disabled
+                      name="email"
+                      value={user?.email ? user?.email : ""}
                     />
                   </p>
                   <p className="mt-3">
                     <input
                       className="input input-bordered w-full max-w-xs input-border-style mt-5"
-                      {...register("quantity", {
-                        required: {
-                          value: true,
-                          message: "quantity is required",
-                        },
-                      })}
                       placeholder="Quantity"
                       type="text"
                       class="input input-bordered w-full max-w-xs"
                       value={submitQuantity ? submitQuantity : ""}
                       disabled
+                      name="quantity"
                     />
                   </p>
                   <p className="mt-3">
                     <input
                       className="w-full h-10 px-4 text-sm peer bg-gray-100 outline-none "
-                      {...register("price", {
-                        required: {
-                          value: true,
-                          message: "Email is required",
-                        },
-                        pattern: {
-                          value:
-                            /^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/,
-                          message: "Please provide a valid email address",
-                        },
-                      })}
                       placeholder="price"
                       type="text"
                       class="input input-bordered w-full max-w-xs"
@@ -210,53 +204,31 @@ const SinglePart = () => {
                           : ""
                       }
                       disabled
+                      name="price"
                     />
                   </p>
                   <p className="mt-3">
                     <input
                       className="w-full h-10 px-4 text-sm peer bg-gray-100 outline-none"
-                      {...register("address", {
-                        required: {
-                          value: true,
-                          message: "Address is required",
-                        },
-                      })}
                       placeholder="address"
                       type="text"
                       class="input input-bordered w-full max-w-xs"
+                      name="address"
+                      required
                     />
                   </p>
-
-                  <label className="level">
-                    {errors.address?.type === "required" && (
-                      <span class="label-text-alt text-red-500 font-bold error-message">
-                        {errors?.address?.message}
-                      </span>
-                    )}
-                  </label>
 
                   <p className="mt-3">
                     <input
                       className="w-full h-10 px-4 text-sm peer bg-gray-100 outline-none mt-5"
-                      {...register("number", {
-                        required: {
-                          value: true,
-                          message: "Contact Number is required",
-                        },
-                      })}
                       placeholder="Contact Number"
                       type="text"
                       class="input input-bordered w-full max-w-xs"
+                      name="number"
+                      required
                     />
                   </p>
 
-                  <label className="level">
-                    {errors.number?.type === "required" && (
-                      <span class="label-text-alt text-red-500 font-bold error-message">
-                        {errors?.number?.message}
-                      </span>
-                    )}
-                  </label>
                   <p className="mt-3">
                     {" "}
                     <button class="btn btn-primary text-center  w-full max-w-xs ">

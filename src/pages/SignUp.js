@@ -10,13 +10,15 @@ import { useCreateUserWithEmailAndPassword } from "react-firebase-hooks/auth";
 import { FaGoogle } from "react-icons/fa";
 import auth from "../firebase/firebase.init";
 import { FiLogIn } from "react-icons/fi";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
 
 import "react-toastify/dist/ReactToastify.css";
 import LoginLoding from "../shared/LoginLoding";
 import authentication from "../assets/authentication.svg";
 const SignUp = () => {
+  const navigate = useNavigate();
+  const location = useLocation();
   const [showPass, setShowPass] = useState(false);
   const [signInWithGoogle, googleUser, googleLoading, googleError] =
     useSignInWithGoogle(auth);
@@ -43,6 +45,14 @@ const SignUp = () => {
         <small>{googleError?.message || error?.message}</small>
       </span>
     );
+  }
+
+  // for redirecting:
+
+  const from = location.state?.from?.pathname || "/";
+
+  if (googleUser || user) {
+    navigate(from, { replace: true });
   }
 
   // for loading:

@@ -73,13 +73,13 @@ const Navbar = ({ children }) => {
                 </NavLink>
               </li>
               <li>
-                <NavLink to="/about" className="rounded-lg ">
-                  About
+                <NavLink to="/parts" className="rounded-lg ">
+                  Tools
                 </NavLink>
               </li>
               <li>
-                <NavLink to="/services" className="rounded-lg ">
-                  Services
+                <NavLink to="/blogs" className="rounded-lg ">
+                  Blogs
                 </NavLink>
               </li>
               {!user ? (
@@ -138,14 +138,13 @@ const Navbar = ({ children }) => {
             </NavLink>
           </li>
           <li>
-            <NavLink to="/about" className="rounded-lg ">
-              About
+            <NavLink to="/parts" className="rounded-lg ">
+              Tools
             </NavLink>
           </li>
-
           <li>
-            <NavLink to="/services" className="rounded-lg ">
-              Services
+            <NavLink to="/blogs" className="rounded-lg ">
+              Blogs
             </NavLink>
           </li>
 

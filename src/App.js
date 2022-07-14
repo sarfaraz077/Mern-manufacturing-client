@@ -22,6 +22,7 @@ import Parts from "./pages/parts/Parts";
 import Part from "./pages/parts/Part";
 import AllParts from "./pages/parts/AllParts";
 import SinglePart from "./pages/parts/SinglePart";
+import RequireAuth from "./shared/RequireAuth";
 function App() {
   const [loading, setLoading] = useState(true);
   const spinner = document.getElementById("spinner");
@@ -45,18 +46,32 @@ function App() {
 
         <Routes>
           <Route path="/" element={<Home></Home>}></Route>
-          <Route path="/about" element={<About></About>}></Route>
+
           <Route path="/login" element={<Login></Login>}></Route>
           <Route path="/signup" element={<SignUp></SignUp>}></Route>
-          <Route path="/services" element={<Services></Services>}></Route>
-          <Route path="/dashboard" element={<Dashboard></Dashboard>}>
+
+          <Route
+            path="/dashboard"
+            element={
+              <RequireAuth>
+                <Dashboard></Dashboard>
+              </RequireAuth>
+            }
+          >
             {/* nested route */}
             <Route path="my-profile" element={<MyProfile></MyProfile>}></Route>
           </Route>
 
           <Route path="/blogs" element={<Blog></Blog>}></Route>
           <Route path="/parts" element={<AllParts></AllParts>}></Route>
-          <Route path="/part/:id" element={<SinglePart></SinglePart>}></Route>
+          <Route
+            path="/part/:id"
+            element={
+              <RequireAuth>
+                <SinglePart></SinglePart>
+              </RequireAuth>
+            }
+          ></Route>
 
           <Route path="*" element={<NotFound></NotFound>}></Route>
         </Routes>

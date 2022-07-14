@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Navbar from "../shared/Navbar";
 import login from "../../src/assets/login.svg";
 import { useForm } from "react-hook-form";
@@ -12,13 +12,15 @@ import {
 import { FaGoogle } from "react-icons/fa";
 import auth from "../firebase/firebase.init";
 import { FiLogIn } from "react-icons/fi";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
 
 import "react-toastify/dist/ReactToastify.css";
 import LoginLoding from "../shared/LoginLoding";
 
 const Login = () => {
+  const navigate = useNavigate();
+  const location = useLocation();
   const [showPass, setShowPass] = useState(false);
 
   const [signInWithGoogle, googleUser, googleLoading, googleError] =
@@ -52,6 +54,13 @@ const Login = () => {
     );
   }
 
+  // for redirecting:
+
+  const from = location.state?.from?.pathname || "/";
+
+  if (googleUser || user) {
+    navigate(from, { replace: true });
+  }
   const onSubmit = (data) => {
     signInWithEmailAndPassword(data?.email, data?.password);
 

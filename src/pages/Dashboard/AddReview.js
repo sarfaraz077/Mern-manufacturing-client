@@ -59,6 +59,7 @@ const AddReview = () => {
       ratingNumber: ratingNumber,
       currentEmail: currentEmail,
       textArea: textArea,
+      photo: user?.photoURL,
     };
 
     fetch(`http://localhost:5000/add-review/${currentEmail}`, {
@@ -71,14 +72,15 @@ const AddReview = () => {
     })
       .then((res) => res.json())
       .then((data) => {
-        if (number === 0) {
-          toast.info(`Hey!${user?.email} fellas kindly add some star!`);
+        if (!ratingNumber || !textArea === null) {
+          toast(`Hey!${user?.email} fellas kindly add some star!`);
         }
         if (data.insertedId) {
           toast.success(`Thank You ${user?.email} for your review!🤗`);
         }
         console.log(data);
       });
+    event.target.reset();
   };
   return (
     <div className="header lg:max-w-lg rounded-xl p-20">

@@ -3,7 +3,7 @@ import { useAuthState } from "react-firebase-hooks/auth";
 import auth from "../../firebase/firebase.init";
 import Navbar from "../../shared/Navbar";
 
-import { Outlet, Link } from "react-router-dom";
+import { Outlet, Link, NavLink } from "react-router-dom";
 import Footer from "../../shared/Footer";
 
 const Dashboard = () => {
@@ -32,13 +32,13 @@ const Dashboard = () => {
             <ul class="menu p-4 overflow-y-auto w-80 header  text-base-content">
               {/* <!-- Sidebar content here --> */}
               <li>
-                <Link to="/dashboard/my-profile">My profile</Link>
+                <NavLink to="/dashboard/my-profile">My profile</NavLink>
               </li>
               <li>
-                <Link to="/dashboard/add-review">Add a Review</Link>
+                <NavLink to="/dashboard/add-review">Add a Review</NavLink>
               </li>
               <li>
-                <Link to="/dashboard/my-orders">My Orders</Link>
+                <NavLink to="/dashboard/my-orders">My Orders</NavLink>
               </li>
             </ul>
           </div>

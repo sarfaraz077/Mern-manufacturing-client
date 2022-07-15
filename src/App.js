@@ -25,6 +25,7 @@ import SinglePart from "./pages/parts/SinglePart";
 import RequireAuth from "./shared/RequireAuth";
 import AddReview from "./pages/Dashboard/AddReview";
 import MyOrders from "./pages/Dashboard/MyOrders";
+import EditProfile from "./pages/Dashboard/EditProfile";
 function App() {
   const [loading, setLoading] = useState(true);
   const spinner = document.getElementById("spinner");
@@ -64,6 +65,10 @@ function App() {
             <Route path="my-profile" element={<MyProfile></MyProfile>}></Route>
             <Route path="add-review" element={<AddReview></AddReview>}></Route>
             <Route path="my-orders" element={<MyOrders></MyOrders>}></Route>
+            <Route
+              path="my-profile/edit-profile"
+              element={<EditProfile></EditProfile>}
+            ></Route>
           </Route>
 
           <Route path="/blogs" element={<Blog></Blog>}></Route>

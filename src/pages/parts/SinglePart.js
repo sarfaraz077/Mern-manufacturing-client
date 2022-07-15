@@ -41,6 +41,7 @@ const SinglePart = () => {
   }
   let quantity;
   const handleSubmitForm = (event) => {
+    // console.log(event.target.imgS.src);
     event.preventDefault();
     quantity = parseInt(event.target.quantity.value);
 
@@ -80,6 +81,7 @@ const SinglePart = () => {
       address: address,
       number: number,
       product: singlePart?.name,
+      img: singlePart?.img,
     };
 
     fetch("http://localhost:5000/part", {
@@ -101,7 +103,7 @@ const SinglePart = () => {
         }
       });
   };
-
+  console.log(singlePart?.img);
   // console.log(parseInt(submitQuantity));
   // console.log(singlePart?.MinimumOrder * singlePart?.price);
 
@@ -117,6 +119,7 @@ const SinglePart = () => {
           >
             <div class="card-body">
               <img
+                id="imgS"
                 src={singlePart?.img}
                 alt=""
                 className="rounded-t-lg  object-cover  h-[250px]"

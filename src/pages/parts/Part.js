@@ -2,6 +2,7 @@ import React from "react";
 import { BsFillBagCheckFill } from "react-icons/bs";
 import Card from "react-animated-3d-card";
 import { Link } from "react-router-dom";
+import BackToTopButton from "../../shared/BackToTopButton";
 
 const Part = ({ part }) => {
   const { name, img, price, stock, MinimumOrder, description, _id } = part;
@@ -44,6 +45,7 @@ const Part = ({ part }) => {
           </Link>
         </div>
       </div>
+      <BackToTopButton></BackToTopButton>
     </div>
   );
 };

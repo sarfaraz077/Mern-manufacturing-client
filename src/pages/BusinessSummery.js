@@ -9,6 +9,7 @@ import project from "../assets/Business/project.svg";
 import TypeWriter from "react-typewriter";
 import Card from "react-animated-3d-card";
 import CountUp, { useCountUp } from "react-countup";
+import { useTypewriter } from "react-simple-typewriter";
 
 const BusinessSummery = () => {
   //   const countUpRef = React.useRef(null);
@@ -18,23 +19,27 @@ const BusinessSummery = () => {
   //     end: 700,
   //     duration: 2,
   //   });
+  const { text } = useTypewriter({
+    words: ["Hand Over", "Provide", "Serve"],
+    loop: "2",
+    onLoopDone: () => console.log(`loop completed after 3 runs.`),
+  });
+
   return (
     <>
-      <h2 className="text-5xl text-center my-10">
-        <TypeWriter typing={1}>
-          We
-          <span
-            style={{
-              fontSize: "68px",
-              backgroundImage: "linear-gradient(to right, #ba81cf, #6886d4)",
-              "-webkit-background-clip": "text",
-              "-webkit-text-fill-color": "transparent",
-            }}
-          >
-            {" "}
-            Provide
-          </span>
-        </TypeWriter>
+      <h2 className=" text-center my-10 text-3xl lg:text-5xl">
+        We
+        <span
+          className="text-5xl lg:text-7xl"
+          style={{
+            backgroundImage: "linear-gradient(to right, #ba81cf, #6886d4)",
+            "-webkit-background-clip": "text",
+            "-webkit-text-fill-color": "transparent",
+          }}
+        >
+          {" "}
+          {text}
+        </span>
       </h2>
       <div className=" rounded-2xl grid grid-cols-1 lg:grid-cols-3 gap-10 lg:px-20  p-5 ">
         <Card

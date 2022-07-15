@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import Card from "react-animated-3d-card";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { AiFillStar } from "react-icons/ai";
+import { FaQuoteLeft, FaQuoteRight } from "react-icons/fa";
 import auth from "../../firebase/firebase.init";
 
 const SingleReview = ({ review }) => {
@@ -68,7 +69,7 @@ const SingleReview = ({ review }) => {
   return (
     <div className="flex items-center justify-center mt-10">
       <Card>
-        <div class="card w-96 header ">
+        <div class="card w-96 header">
           <div class="card-body">
             {photo && (
               <div class="avatar">
@@ -88,7 +89,17 @@ const SingleReview = ({ review }) => {
               </span>
             </h2>
             <h1 className="text-center">Email : {currentEmail}</h1>
-            <h3 className="text-center text-xl text-success">🙶 {textArea} 🙷</h3>
+            <h3
+              className="text-center text-xl text-[#2BCAC2] font-bold"
+              style={{
+                background: "linear-gradient(to right, #7ed56f, #28b485)",
+
+                "-webkit-background-clip": "text",
+                "-webkit-text-fill-color": "rgba(255, 255, 255, 0)",
+              }}
+            >
+              🙶 {textArea} 🙷
+            </h3>
           </div>
         </div>
       </Card>

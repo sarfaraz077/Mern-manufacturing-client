@@ -7,8 +7,15 @@ import Card from "react-animated-3d-card";
 import { useQuery } from "react-query";
 import LoginLoding from "../../shared/LoginLoding";
 import SingleReview from "./SingleReview";
+import { Typewriter, useTypewriter, Cursor } from "react-simple-typewriter";
 
 const ReviewCardHome = () => {
+  const { text } = useTypewriter({
+    words: ["Clients", "Customers"],
+    loop: "1",
+    onLoopDone: () => console.log(`loop completed after 3 runs.`),
+  });
+
   const [reviews, setReviews] = useState([]);
   useEffect(() => {
     fetch(`http://localhost:5000/get-review`, {
@@ -71,10 +78,24 @@ const ReviewCardHome = () => {
       </div>
     ),
   };
+
   return (
     <div>
       <div className="lg:px-20 ">
-        <h1 className="text-center text-3xl mt-20">What Our Customer Says</h1>
+        <h1 className="text-center text-2xl lg:text-5xl mt-20">
+          What Our{" "}
+          <span
+            className="text-4xl lg:text-7xl"
+            style={{
+              backgroundImage: "linear-gradient(to right, #ba81cf, #6886d4)",
+              "-webkit-background-clip": "text",
+              "-webkit-text-fill-color": "transparent",
+            }}
+          >
+            {text}
+          </span>{" "}
+          Say
+        </h1>
 
         <Slider {...settings}>
           {/* <div>

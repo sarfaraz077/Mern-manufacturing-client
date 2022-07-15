@@ -4,10 +4,12 @@ import { AiOutlineInstagram } from "react-icons/ai";
 import { Link } from "react-router-dom";
 
 import "./Footer.css";
+// import ScrollToTop from "react-scroll-to-top";
 
 const Footer = () => {
   return (
     <div>
+      {/* <ScrollToTop smooth top="20" /> */}
       <footer class=" footer  footer-center  footer-bg p-20 text-[primary]">
         <div className="mt-40">
           <svg

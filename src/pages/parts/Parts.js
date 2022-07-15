@@ -1,6 +1,7 @@
 import React from "react";
 import { useQuery } from "react-query";
 import { Link } from "react-router-dom";
+import BackToTopButton from "../../shared/BackToTopButton";
 import LoginLoding from "../../shared/LoginLoding";
 import Part from "./Part";
 import SinglePart from "./SinglePart";
@@ -19,7 +20,7 @@ const Parts = () => {
     return <LoginLoding></LoginLoding>;
   }
   return (
-    <>
+    <div id="tools">
       <h2 className="text-center text-5xl my-10 mt-20 ">Latest Tools</h2>
 
       <div className=" lg:w-[100%] lg:px-20  grid lg:grid-cols-3 grid-cols-1 gap-10 ">
@@ -33,7 +34,9 @@ const Parts = () => {
           More Tools
         </Link>
       </div>
-    </>
+
+      <BackToTopButton></BackToTopButton>
+    </div>
   );
 };
 

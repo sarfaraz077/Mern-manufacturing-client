@@ -9,7 +9,7 @@ import { useAuthState } from "react-firebase-hooks/auth";
 import { useLocation, Link } from "react-router-dom";
 import { signOut } from "firebase/auth";
 import logo from "../assets/logo.png";
-
+import BackToTopButton from "./BackToTopButton";
 const Navbar = ({ children }) => {
   const [user] = useAuthState(auth);
   const { pathname } = useLocation();
@@ -73,7 +73,7 @@ const Navbar = ({ children }) => {
                 </NavLink>
               </li>
               <li>
-                <NavLink to="/parts" className="rounded-lg ">
+                <NavLink to="/parts" className="rounded-lg " id="">
                   Tools
                 </NavLink>
               </li>
@@ -191,6 +191,7 @@ const Navbar = ({ children }) => {
           )}
         </ul>
       </div>
+      <BackToTopButton></BackToTopButton>
     </div>
   );
 };

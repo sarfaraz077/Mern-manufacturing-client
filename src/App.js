@@ -26,6 +26,9 @@ import RequireAuth from "./shared/RequireAuth";
 import AddReview from "./pages/Dashboard/AddReview";
 import MyOrders from "./pages/Dashboard/MyOrders";
 import EditProfile from "./pages/Dashboard/EditProfile";
+import ScrollToTop from "react-scroll-to-top";
+import BackToTopButton from "./shared/BackToTopButton";
+
 function App() {
   const [loading, setLoading] = useState(true);
   const spinner = document.getElementById("spinner");
@@ -84,6 +87,8 @@ function App() {
 
           <Route path="*" element={<NotFound></NotFound>}></Route>
         </Routes>
+
+        <BackToTopButton></BackToTopButton>
       </div>
     )
   );

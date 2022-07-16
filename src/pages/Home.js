@@ -28,11 +28,7 @@ const Home = () => {
           <Footer></Footer>
         </div>
       </Navbar>
-      <MessengerCustomerChat
-        pageId="103969108741738"
-        appId="827389114895107"
-        htmlRef="<REF_STRING>"
-      />
+      <MessengerCustomerChat pageId="110439261737875" appId="417660657090210" />
       ,
     </div>
   );

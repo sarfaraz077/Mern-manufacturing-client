@@ -43,9 +43,9 @@ const Navbar = ({ children }) => {
 
           <div class="flex-1 px-2 mx-2 items-center">
             <span className="text-2xl text-primary font-bold dark-nav-logo-clr">
-              Clean
+              𝓣𝓡
             </span>
-            <span className="text-2xl dark-sub-logo">Co.</span>
+            <span className="text-2xl dark-sub-logo">&nbsp;𝓜𝓐𝓝𝓤</span>
           </div>
           <div class="flex-none lg:hidden ">
             <label for="my-drawer-3" class="btn btn-square btn-ghost ">
@@ -101,7 +101,7 @@ const Navbar = ({ children }) => {
               )}
               {user && (
                 <li>
-                  <NavLink to="/dashboard" className="rounded-lg ">
+                  <NavLink to="/dashboard/my-profile" className="rounded-lg ">
                     Dashboard
                   </NavLink>
                 </li>
@@ -109,18 +109,16 @@ const Navbar = ({ children }) => {
               <li>
                 <DarkMode></DarkMode>
               </li>
-              {user && (
-                <>
-                  {" "}
-                  <li>
-                    <div class="avatar online">
-                      <div class="w-8 rounded-full">
-                        <img src={user?.photoURL} alt="" />
-                      </div>
+
+              <li>
+                {user?.photoURL && (
+                  <div class="avatar online">
+                    <div class="w-8 rounded-full">
+                      <img src={user?.photoURL} alt="" />
                     </div>
-                  </li>
-                </>
-              )}
+                  </div>
+                )}
+              </li>
             </ul>
           </div>
         </div>

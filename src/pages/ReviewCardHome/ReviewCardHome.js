@@ -18,7 +18,7 @@ const ReviewCardHome = () => {
 
   const [reviews, setReviews] = useState([]);
   useEffect(() => {
-    fetch(`http://localhost:5000/get-review`, {
+    fetch(`https://limitless-ocean-30960.herokuapp.com/get-review`, {
       method: "GET",
       headers: {
         "content-type": "application/json",

@@ -26,10 +26,10 @@
       
     -->
     <style>
-      .loading {
+      .loader {
         animation: animate infinite;
       }
-      .loading::after {
+      .loader::after {
         content: "𝐿𝑜𝒶𝒹𝒾𝓃𝑔....";
         font-family: Impact, sans-serif;
         font-size: 4rem;
@@ -44,7 +44,7 @@
         animation: animate 5s infinite;
       }
       @media (max-width: 576px) {
-        .loading::after {
+        .loader::after {
           font-size: 3rem;
         }
       }
@@ -67,12 +67,12 @@
         }
       }
     </style>
-    <title>React App</title>
+    <title>TR | Service</title>
   </head>
   <body>
     <noscript>You need to enable JavaScript to run this app.</noscript>
     <div class="container-spinner" id="spinner">
-      <div class="loading"></div>
+      <div class="loader"></div>
     </div>
     <div id="root"></div>
     <!--

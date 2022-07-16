@@ -18,9 +18,11 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import LoginLoding from "../shared/LoginLoding";
 import useToken from "../hooks/useToken";
+import PageTitle from "../shared/PageTitle";
 
 const Login = () => {
   const [showPass, setShowPass] = useState(false);
+  const [loaderLogin, setLoaderLogin] = useState(true);
 
   const [signInWithGoogle, googleUser, googleLoading, googleError] =
     useSignInWithGoogle(auth);
@@ -82,6 +84,7 @@ const Login = () => {
 
   return (
     <div>
+      <PageTitle title={"Login"}></PageTitle>
       <Navbar>
         <div className="grid lg:grid-cols-2 lg:px-20 lg:gap-20 sm:gap-5 md:gap-5">
           {/* for img */}

@@ -13,7 +13,7 @@ const MyOrder = ({ order, index }) => {
           </div>
         </div>
       </td>
-      <td>{name}</td>
+      <td>{name ? name : "N/N"}</td>
       <td>${price}</td>
       <td>{quantity}</td>
       <td>{address}</td>

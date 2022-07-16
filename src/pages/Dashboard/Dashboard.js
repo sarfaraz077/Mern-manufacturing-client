@@ -5,15 +5,20 @@ import Navbar from "../../shared/Navbar";
 
 import { Outlet, Link, NavLink } from "react-router-dom";
 import Footer from "../../shared/Footer";
+import useToken from "../../hooks/useToken";
+import useAdmin from "../../hooks/useAdmin";
+import PageTitle from "../../shared/PageTitle";
 
 const Dashboard = () => {
   const [user] = useAuthState(auth);
+  const [admin] = useAdmin(user);
   return (
     <div>
+      <PageTitle title={Dashboard}></PageTitle>
       <Navbar>
         <div class="drawer drawer-mobile">
           <input id="my-drawer-2" type="checkbox" class="drawer-toggle" />
-          <div class="drawer-content flex h-[100%] flex-col items-center justify-center">
+          <div class="drawer-content flex h-[100%] sm:h-[100%] flex-col items-center justify-center">
             {/* <!-- Page content here --> */}
             <div>
               <h1 className="text-center lg:text-2xl ">
@@ -34,12 +39,23 @@ const Dashboard = () => {
               <li>
                 <NavLink to="/dashboard/my-profile">My profile</NavLink>
               </li>
-              <li>
-                <NavLink to="/dashboard/add-review">Add a Review</NavLink>
-              </li>
-              <li>
-                <NavLink to="/dashboard/my-orders">My Orders</NavLink>
-              </li>
+
+              {!admin && (
+                <>
+                  <li>
+                    <NavLink to="/dashboard/add-review">Add a Review</NavLink>
+                  </li>
+                  <li>
+                    <NavLink to="/dashboard/my-orders">My Orders</NavLink>
+                  </li>
+                </>
+              )}
+
+              {admin && (
+                <li>
+                  <NavLink to="/dashboard/users">Make Admin</NavLink>
+                </li>
+              )}
             </ul>
           </div>
         </div>

@@ -18,7 +18,7 @@ const EditProfile = () => {
     reset,
   } = useForm();
   //   const { data: users, isLoading } = useQuery(["user"], () =>
-  //     fetch(`http://localhost:5000/user/${user?.email}`)
+  //     fetch(`https://limitless-ocean-30960.herokuapp.com/user/${user?.email}`)
   //       .then((res) => res.json())
   //       .then((updateData) => console.log(updateData))
   //   );
@@ -49,7 +49,7 @@ const EditProfile = () => {
           // after successfully uploading imgbb thn post to the database:
           const img = uploadImg.data?.url;
           const updatedUserInfo = {
-            name: data?.name,
+            displayName: data?.name,
             img: img,
             address: data?.address,
             number: data?.number,
@@ -59,13 +59,16 @@ const EditProfile = () => {
 
           //   now post all user updated info to the database:
           // send to your database
-          fetch(`http://localhost:5000/user/${user?.email}`, {
-            method: "PUT",
-            headers: {
-              "content-type": "application/json",
-            },
-            body: JSON.stringify(updatedUserInfo),
-          })
+          fetch(
+            `https://limitless-ocean-30960.herokuapp.com/user/${user?.email}`,
+            {
+              method: "PUT",
+              headers: {
+                "content-type": "application/json",
+              },
+              body: JSON.stringify(updatedUserInfo),
+            }
+          )
             .then((res) => res.json())
             .then((updateUserData) => {
               if (updateUserData?.result) {

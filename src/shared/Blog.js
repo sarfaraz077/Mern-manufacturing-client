@@ -4,6 +4,7 @@ import Navbar from "./Navbar";
 import person1 from "../assets/person 1.png";
 import person2 from "../assets/person 2.png";
 import person3 from "../assets/person 3.png";
+import PageTitle from "./PageTitle";
 
 const Blog = () => {
   // for dynamic day:
@@ -18,6 +19,7 @@ const Blog = () => {
   ];
   return (
     <>
+      <PageTitle title={"Blogs"}></PageTitle>
       <Navbar>
         <div class="card lg:max-w-lg  sm:max-w-sm header shadow-xl mx-auto mt-[10%] ">
           <div className="card-body ">

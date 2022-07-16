@@ -14,13 +14,17 @@ const MyProfileUpdateUser = ({ userUpdate }) => {
               <img
                 src={userUpdate?.img ? userUpdate?.img : user?.photoURL}
                 alt="photoURl"
+                className="hover:opacity-[0.8] cursor-pointer "
               />
             </div>
           </div>
 
           <div>
             <h1>
-              Name : {userUpdate?.name ? userUpdate?.name : user?.displayName}
+              Name :{" "}
+              {userUpdate?.displayName
+                ? userUpdate?.displayName
+                : user?.displayName || "N/N"}
             </h1>
             <h1 className="my-3">
               Email :{" "}

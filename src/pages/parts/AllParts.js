@@ -4,6 +4,7 @@ import { useQuery } from "react-query";
 import LoginLoding from "../../shared/LoginLoding";
 import Part from "./Part";
 import SinglePart from "./SinglePart";
+import PageTitle from "../../shared/PageTitle";
 
 const AllParts = () => {
   const {
@@ -20,6 +21,7 @@ const AllParts = () => {
   }
   return (
     <div>
+      <PageTitle title={"Tools"}></PageTitle>
       <Navbar>
         <>
           <h2 className="text-center text-5xl my-10 mt-20 ">All Tools</h2>

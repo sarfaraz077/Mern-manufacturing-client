@@ -62,14 +62,17 @@ const AddReview = () => {
       photo: user?.photoURL,
     };
 
-    fetch(`http://localhost:5000/add-review/${currentEmail}`, {
-      method: "POST",
-      headers: {
-        "content-type": "application/json",
-        authorization: `Bearer ${localStorage.getItem("accessToken")}`,
-      },
-      body: JSON.stringify(reviewData),
-    })
+    fetch(
+      `https://limitless-ocean-30960.herokuapp.com/add-review/${currentEmail}`,
+      {
+        method: "POST",
+        headers: {
+          "content-type": "application/json",
+          authorization: `Bearer ${localStorage.getItem("accessToken")}`,
+        },
+        body: JSON.stringify(reviewData),
+      }
+    )
       .then((res) => res.json())
       .then((data) => {
         if (!ratingNumber || !textArea === null) {

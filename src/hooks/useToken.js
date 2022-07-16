@@ -10,7 +10,7 @@ const useToken = (user) => {
     const displayName = user?.user?.displayName;
     const currentUser = { email: email, displayName: displayName };
     if (email) {
-      fetch(`http://localhost:5000/user/${email}`, {
+      fetch(`https://limitless-ocean-30960.herokuapp.com/user/${email}`, {
         method: "PUT",
         headers: {
           "content-type": "application/json",

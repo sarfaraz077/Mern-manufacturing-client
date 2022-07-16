@@ -28,6 +28,8 @@ import MyOrders from "./pages/Dashboard/MyOrders";
 import EditProfile from "./pages/Dashboard/EditProfile";
 import ScrollToTop from "react-scroll-to-top";
 import BackToTopButton from "./shared/BackToTopButton";
+import RequireAdmin from "./shared/RequireAdmin";
+import Users from "./pages/Dashboard/Users";
 
 function App() {
   const [loading, setLoading] = useState(true);
@@ -71,6 +73,14 @@ function App() {
             <Route
               path="my-profile/edit-profile"
               element={<EditProfile></EditProfile>}
+            ></Route>
+            <Route
+              path="users"
+              element={
+                <RequireAdmin>
+                  <Users></Users>
+                </RequireAdmin>
+              }
             ></Route>
           </Route>
 

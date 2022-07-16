@@ -23,7 +23,7 @@ const SinglePart = () => {
   const [singlePart, setSinglePart] = useState({});
 
   useEffect(() => {
-    fetch(`http://localhost:5000/part/${id}`, {
+    fetch(`https://limitless-ocean-30960.herokuapp.com/part/${id}`, {
       method: "GET",
       headers: {
         "content-type": "application/json",
@@ -84,7 +84,7 @@ const SinglePart = () => {
       img: singlePart?.img,
     };
 
-    fetch("http://localhost:5000/part", {
+    fetch("https://limitless-ocean-30960.herokuapp.com/part", {
       method: "POST",
       headers: {
         "content-type": "application/json",

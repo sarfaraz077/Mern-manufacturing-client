@@ -48,11 +48,10 @@ const MyOrders = () => {
           </table>
         </div>
       ) : (
-        <p className="mt-10 text-xl">
+        <p className="mt-10 text-xl ">
           Please Make some Order{" "}
           <Link
             to="/parts"
-            className="animate-pulse"
             style={{
               fontSize: "2rem",
               background: "linear-gradient(to right, #7ed56f, #28b485)",
@@ -61,7 +60,7 @@ const MyOrders = () => {
               "-webkit-text-fill-color": "rgba(255, 255, 255, 0)",
             }}
           >
-            Here
+            Here 👈
           </Link>
         </p>
       )}

@@ -14,7 +14,7 @@ const Dashboard = () => {
   const [admin] = useAdmin(user);
   return (
     <div>
-      <PageTitle title={Dashboard}></PageTitle>
+      <PageTitle title={"Dashboard"}></PageTitle>
       <Navbar>
         <div class="drawer drawer-mobile">
           <input id="my-drawer-2" type="checkbox" class="drawer-toggle" />

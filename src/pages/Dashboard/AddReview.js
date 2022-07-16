@@ -11,6 +11,7 @@ import "react-toastify/dist/ReactToastify.css";
 import { useQuery } from "react-query";
 
 const AddReview = () => {
+  const [updateloading, setUpdateLoading] = useState(false);
   const [user] = useAuthState(auth);
   const [number, setNumber] = useState(0);
   const [hoverStar, setHoverStar] = useState(undefined);
@@ -50,6 +51,7 @@ const AddReview = () => {
     }
   };
   const handleStarSubmit = (event) => {
+    setUpdateLoading(true);
     event.preventDefault();
     const ratingNumber = number;
     const currentEmail = user?.email;
@@ -62,17 +64,14 @@ const AddReview = () => {
       photo: user?.photoURL,
     };
 
-    fetch(
-      `https://limitless-ocean-30960.herokuapp.com/add-review/${currentEmail}`,
-      {
-        method: "POST",
-        headers: {
-          "content-type": "application/json",
-          authorization: `Bearer ${localStorage.getItem("accessToken")}`,
-        },
-        body: JSON.stringify(reviewData),
-      }
-    )
+    fetch(`https://dry-garden-16157.herokuapp.com/add-review/${currentEmail}`, {
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+        authorization: `Bearer ${localStorage.getItem("accessToken")}`,
+      },
+      body: JSON.stringify(reviewData),
+    })
       .then((res) => res.json())
       .then((data) => {
         if (!ratingNumber || !textArea === null) {
@@ -80,6 +79,7 @@ const AddReview = () => {
         }
         if (data.insertedId) {
           toast.success(`Thank You ${user?.email} for your review!🤗`);
+          setUpdateLoading(false);
         }
         console.log(data);
       });
@@ -126,7 +126,7 @@ const AddReview = () => {
                 !number && "disabled"
               } review-button btn btn-primary mt-5 text-center`}
             >
-              Submit
+              {updateloading ? "Submitting........" : "Submit"}
             </button>
           </p>
         </form>

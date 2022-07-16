@@ -9,7 +9,7 @@ const User = ({ singleUser, index, refetch }) => {
   const { email, address, displayName, img, role } = singleUser;
 
   const makeAdmin = () => {
-    fetch(`https://limitless-ocean-30960.herokuapp.com/user/admin/${email}`, {
+    fetch(`https://dry-garden-16157.herokuapp.com/user/admin/${email}`, {
       method: "PUT",
       headers: {
         authorization: `Bearer ${localStorage.getItem("accessToken")}`,

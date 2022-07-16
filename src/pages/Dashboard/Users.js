@@ -11,7 +11,7 @@ const Users = () => {
     isLoading,
     refetch,
   } = useQuery("user", () =>
-    fetch("https://limitless-ocean-30960.herokuapp.com/user", {
+    fetch("https://dry-garden-16157.herokuapp.com/user", {
       method: "GET",
       headers: {
         "content-type": "application/json",
@@ -25,7 +25,7 @@ const Users = () => {
   }
 
   // useEffect(() => {
-  //   fetch(`https://limitless-ocean-30960.herokuapp.com/user`, {
+  //   fetch(`https://dry-garden-16157.herokuapp.com/user`, {
   //     method: "GET",
   //     headers: {
   //       "content-type": "application/json",

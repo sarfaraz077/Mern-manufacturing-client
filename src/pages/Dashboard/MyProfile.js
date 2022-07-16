@@ -12,11 +12,11 @@ const MyProfile = () => {
   const [user] = useAuthState(auth);
 
   useEffect(() => {
-    fetch(`https://limitless-ocean-30960.herokuapp.com/user/${user?.email}`, {
+    fetch(`https://dry-garden-16157.herokuapp.com/user/${user?.email}`, {
       method: "GET",
       headers: {
         "content-type": "application/json",
-        // authorization: `Bearer ${localStorage.getItem("accessToken")}`,
+        authorization: `Bearer ${localStorage.getItem("accessToken")}`,
       },
     })
       .then((res) => res.json())
@@ -29,7 +29,7 @@ const MyProfile = () => {
   console.log(users);
 
   // const { data: userUpdate, isLoading } = useQuery(["user,user?.email"], () =>
-  //   fetch(`https://limitless-ocean-30960.herokuapp.com/user/${user?.email}`).then((res) => res.json())
+  //   fetch(`https://dry-garden-16157.herokuapp.com/user/${user?.email}`).then((res) => res.json())
   // );
   // console.log(userUpdate);
   return (

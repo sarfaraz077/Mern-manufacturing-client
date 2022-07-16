@@ -8,16 +8,13 @@ const MyOrders = () => {
   const [user] = useAuthState(auth);
   const [orders, setOrders] = useState([]);
   useEffect(() => {
-    fetch(
-      `https://limitless-ocean-30960.herokuapp.com/orders-part/${user?.email}`,
-      {
-        method: "GET",
-        headers: {
-          "content-type": "application/json",
-          authorization: `Bearer ${localStorage.getItem("accessToken")}`,
-        },
-      }
-    )
+    fetch(`https://dry-garden-16157.herokuapp.com/orders-part/${user?.email}`, {
+      method: "GET",
+      headers: {
+        "content-type": "application/json",
+        authorization: `Bearer ${localStorage.getItem("accessToken")}`,
+      },
+    })
       .then((res) => res.json())
       .then((data) => setOrders(data));
   }, [user?.email]);

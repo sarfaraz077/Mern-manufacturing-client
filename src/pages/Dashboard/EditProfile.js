@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
 import auth from "../../firebase/firebase.init";
 import { useQuery } from "react-query";
@@ -9,16 +9,21 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 const EditProfile = () => {
-  const [user] = useAuthState(auth);
-
   const {
     register,
     formState: { errors },
     handleSubmit,
     reset,
   } = useForm();
+  const [updateLoading, setUpdateLoading] = useState(false);
+  const [user, loading] = useAuthState(auth);
+
+  // if (!loading || !setUpdateLoading) {
+  //   return <LoginLoding></LoginLoding>;
+  // }
+
   //   const { data: users, isLoading } = useQuery(["user"], () =>
-  //     fetch(`https://limitless-ocean-30960.herokuapp.com/user/${user?.email}`)
+  //     fetch(`https://dry-garden-16157.herokuapp.com/user/${user?.email}`)
   //       .then((res) => res.json())
   //       .then((updateData) => console.log(updateData))
   //   );
@@ -27,6 +32,7 @@ const EditProfile = () => {
   //     return <LoginLoding></LoginLoding>;
   //   }
   const onSubmit = async (data) => {
+    setUpdateLoading(true);
     // event.preventDefault();
     // const name = event.target.name.value;
     // const number = event.target.number.value;
@@ -59,16 +65,13 @@ const EditProfile = () => {
 
           //   now post all user updated info to the database:
           // send to your database
-          fetch(
-            `https://limitless-ocean-30960.herokuapp.com/user/${user?.email}`,
-            {
-              method: "PUT",
-              headers: {
-                "content-type": "application/json",
-              },
-              body: JSON.stringify(updatedUserInfo),
-            }
-          )
+          fetch(`https://dry-garden-16157.herokuapp.com/user/${user?.email}`, {
+            method: "PUT",
+            headers: {
+              "content-type": "application/json",
+            },
+            body: JSON.stringify(updatedUserInfo),
+          })
             .then((res) => res.json())
             .then((updateUserData) => {
               if (updateUserData?.result) {
@@ -76,6 +79,8 @@ const EditProfile = () => {
                   `${user?.email} Successfully updated information`
                 );
               }
+              setUpdateLoading(false);
+
               console.log(updateUserData);
             });
         }
@@ -154,7 +159,13 @@ const EditProfile = () => {
 
           <p className="mt-3">
             {" "}
-            <button class="btn btn-primary text-center  w-full max-w-xs ">
+            <button
+              class={
+                updateLoading
+                  ? "btn btn-primary text-center  w-full max-w-xs loading"
+                  : "btn btn-primary text-center  w-full max-w-xs"
+              }
+            >
               Update
             </button>
           </p>

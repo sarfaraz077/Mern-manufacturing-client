@@ -11,7 +11,7 @@ const SingleReview = ({ review }) => {
   // const [user] = useAuthState(auth);
 
   // useEffect(() => {
-  //   fetch(`https://limitless-ocean-30960.herokuapp.com/user/${user?.email}`, {
+  //   fetch(`https://dry-garden-16157.herokuapp.com/user/${user?.email}`, {
   //     method: "GET",
   //     headers: {
   //       "content-type": "application/json",

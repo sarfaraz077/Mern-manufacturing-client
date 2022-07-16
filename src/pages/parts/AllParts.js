@@ -12,7 +12,7 @@ const AllParts = () => {
 
     data: parts,
   } = useQuery(["part", "parts"], () =>
-    fetch(`https://limitless-ocean-30960.herokuapp.com/parts`).then((res) =>
+    fetch(`https://dry-garden-16157.herokuapp.com/parts`).then((res) =>
       res.json()
     )
   );

@@ -166,7 +166,7 @@ const EditProfile = () => {
                   : "btn btn-primary text-center  w-full max-w-xs"
               }
             >
-              Update
+              {updateLoading ? "Updating..." : "Update"}
             </button>
           </p>
         </div>

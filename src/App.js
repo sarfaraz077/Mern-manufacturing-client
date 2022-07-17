@@ -31,6 +31,7 @@ import BackToTopButton from "./shared/BackToTopButton";
 import RequireAdmin from "./shared/RequireAdmin";
 import Users from "./pages/Dashboard/Users";
 import AddProduct from "./pages/Dashboard/AddProduct";
+import PaymentProduct from "./pages/Dashboard/PaymentProduct";
 
 function App() {
   const [loading, setLoading] = useState(true);
@@ -86,7 +87,16 @@ function App() {
 
             <Route
               path="add-product"
-              element={<AddProduct></AddProduct>}
+              element={
+                <RequireAdmin>
+                  <AddProduct></AddProduct>
+                </RequireAdmin>
+              }
+            ></Route>
+
+            <Route
+              path="payment/:id"
+              element={<PaymentProduct></PaymentProduct>}
             ></Route>
           </Route>
 

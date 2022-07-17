@@ -21,12 +21,15 @@ const User = ({ singleUser, index, refetch }) => {
     }).then((result) => {
       if (result.isConfirmed) {
         Swal.fire("Deleted!", `${email} has been removed`, "success");
-        fetch(`http://localhost:4000/user/remove-admin/${email}`, {
-          method: "PUT",
-          headers: {
-            authorization: `Bearer ${localStorage.getItem("accessToken")}`,
-          },
-        })
+        fetch(
+          `https://dry-garden-16157.herokuapp.com/user/remove-admin/${email}`,
+          {
+            method: "PUT",
+            headers: {
+              authorization: `Bearer ${localStorage.getItem("accessToken")}`,
+            },
+          }
+        )
           .then((res) => {
             if (res.status === 403) {
               toast.error("Failed to Make an admin");

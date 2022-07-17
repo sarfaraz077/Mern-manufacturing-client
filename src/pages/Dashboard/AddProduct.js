@@ -47,7 +47,7 @@ const AddProduct = () => {
             admin: user?.email,
           };
           console.log(addedProductInfo);
-          fetch("http://localhost:4000/add-product", {
+          fetch("https://dry-garden-16157.herokuapp.com/add-product", {
             method: "POST",
             headers: {
               "content-type": "application/json",

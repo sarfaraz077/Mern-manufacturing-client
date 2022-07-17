@@ -1,6 +1,8 @@
-import React from "react";
+import React, { useState } from "react";
+import { Link } from "react-router-dom";
 
 const MyOrder = ({ order, index }) => {
+  const [paid, setPaid] = useState(false);
   const { _id, email, name, img, quantity, price, address, number, product } =
     order;
   return (
@@ -18,6 +20,14 @@ const MyOrder = ({ order, index }) => {
       <td>{quantity}</td>
       <td>{address}</td>
       <td>{number}</td>
+      <td>
+        {price && !paid && (
+          <Link to={`/dashboard/payment/${_id}`} className="btn btn-xs">
+            Pay
+          </Link>
+        )}
+        {price && paid && <span className="text-success"> Pay</span>}
+      </td>
     </tr>
   );
 };

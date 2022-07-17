@@ -20,7 +20,7 @@ import LoginLoding from "../shared/LoginLoding";
 import useToken from "../hooks/useToken";
 import PageTitle from "../shared/PageTitle";
 
-const Login = () => {
+const Login = ({ setProgress }) => {
   const [showPass, setShowPass] = useState(false);
   const [loaderLogin, setLoaderLogin] = useState(true);
 
@@ -67,7 +67,9 @@ const Login = () => {
   }
 
   const onSubmit = (data) => {
+    setProgress(10);
     signInWithEmailAndPassword(data?.email, data?.password);
+    setProgress(100);
 
     console.log(data);
   };

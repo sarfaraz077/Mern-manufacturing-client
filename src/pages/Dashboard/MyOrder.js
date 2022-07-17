@@ -2,9 +2,18 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 
 const MyOrder = ({ order, index }) => {
-  const [paid, setPaid] = useState(false);
-  const { _id, email, name, img, quantity, price, address, number, product } =
-    order;
+  const {
+    _id,
+    email,
+    name,
+    img,
+    quantity,
+    price,
+    address,
+    number,
+    product,
+    paid,
+  } = order;
   return (
     <tr>
       <th>{index + 1}</th>
@@ -26,7 +35,7 @@ const MyOrder = ({ order, index }) => {
             Pay
           </Link>
         )}
-        {price && paid && <span className="text-success"> Pay</span>}
+        {price && paid && <span className="text-success"> Already Paid</span>}
       </td>
     </tr>
   );

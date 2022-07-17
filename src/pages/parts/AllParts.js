@@ -16,6 +16,7 @@ const AllParts = () => {
       res.json()
     )
   );
+
   if (isLoading) {
     return <LoginLoding></LoginLoding>;
   }

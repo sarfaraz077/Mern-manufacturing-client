@@ -34,6 +34,8 @@ import AddProduct from "./pages/Dashboard/AddProduct";
 import PaymentProduct from "./pages/Dashboard/PaymentProduct";
 
 function App() {
+  // for top loading bar:
+  const [progress, setProgress] = useState(0);
   const [loading, setLoading] = useState(true);
   const spinner = document.getElementById("spinner");
 
@@ -57,7 +59,12 @@ function App() {
         <Routes>
           <Route path="/" element={<Home></Home>}></Route>
 
-          <Route path="/login" element={<Login></Login>}></Route>
+          <Route
+            path="/login"
+            element={
+              <Login setProgress={setProgress} progress={progress}></Login>
+            }
+          ></Route>
           <Route path="/signup" element={<SignUp></SignUp>}></Route>
 
           <Route

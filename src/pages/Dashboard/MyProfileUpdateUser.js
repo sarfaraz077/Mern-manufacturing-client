@@ -34,11 +34,18 @@ const MyProfileUpdateUser = ({ userUpdate }) => {
               </span>
             </h1>
 
-            <h1>
+            <h1 className="my-3">
               Address : {userUpdate?.address ? userUpdate?.address : "N/A"}
             </h1>
 
-            <div class="card-actions justify-end">
+            <h1 className="my-3">
+              Role :{" "}
+              <span className="text-success">
+                {userUpdate?.role ? userUpdate?.role : "user"}
+              </span>
+            </h1>
+
+            <div class="card-actions justify-start">
               {/* here add /dashbaord begin this url because in dashboard i can see this edit-profile route */}
               <Link
                 class="btn bt-primary"

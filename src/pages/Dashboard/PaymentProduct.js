@@ -45,10 +45,10 @@ const PaymentProduct = () => {
         </div>
 
         {/* for payment */}
-        <div class="card lg:max-w-lg header shadow-xl my-5">
+        <div class="card lg:max-w-lg bg-base-100 shadow-xl my-5">
           <div class="card-body">
             <Elements stripe={stripePromise}>
-              <CheckoutForm />
+              <CheckoutForm product={product} />
             </Elements>
           </div>
         </div>

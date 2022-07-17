@@ -30,6 +30,7 @@ import ScrollToTop from "react-scroll-to-top";
 import BackToTopButton from "./shared/BackToTopButton";
 import RequireAdmin from "./shared/RequireAdmin";
 import Users from "./pages/Dashboard/Users";
+import AddProduct from "./pages/Dashboard/AddProduct";
 
 function App() {
   const [loading, setLoading] = useState(true);
@@ -82,6 +83,11 @@ function App() {
                 </RequireAdmin>
               }
             ></Route>
+
+            <Route
+              path="add-product"
+              element={<AddProduct></AddProduct>}
+            ></Route>
           </Route>
 
           <Route path="/blogs" element={<Blog></Blog>}></Route>
@@ -97,8 +103,6 @@ function App() {
 
           <Route path="*" element={<NotFound></NotFound>}></Route>
         </Routes>
-
-        <BackToTopButton></BackToTopButton>
       </div>
     )
   );

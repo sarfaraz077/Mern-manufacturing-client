@@ -5,8 +5,10 @@ import { useQuery } from "react-query";
 import LoginLoding from "../../shared/LoginLoding";
 import { useForm } from "react-hook-form";
 import { ToastContainer, toast } from "react-toastify";
+import "./SweetAlert.css";
 
 import "react-toastify/dist/ReactToastify.css";
+import Swal from "sweetalert2";
 
 const EditProfile = () => {
   const {
@@ -33,11 +35,7 @@ const EditProfile = () => {
   //   }
   const onSubmit = async (data) => {
     setUpdateLoading(true);
-    // event.preventDefault();
-    // const name = event.target.name.value;
-    // const number = event.target.number.value;
-    // const address = event.target.address.value;
-    // const institude = event.target.institude.value;
+
     console.log(data);
 
     // upload image to the imgbb site:
@@ -75,9 +73,16 @@ const EditProfile = () => {
             .then((res) => res.json())
             .then((updateUserData) => {
               if (updateUserData?.result) {
-                toast.success(
-                  `${user?.email} Successfully updated information`
-                );
+                Swal.fire({
+                  customClass: {
+                    title: "swal2-title",
+                  },
+                  position: "middle",
+                  icon: "success",
+                  title: `${user?.email} you successfully update your data`,
+                  showConfirmButton: false,
+                  timer: 1500,
+                });
               }
               setUpdateLoading(false);
 

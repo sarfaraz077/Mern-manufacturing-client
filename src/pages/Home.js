@@ -21,15 +21,17 @@ const Home = () => {
         <div>
           <Hero className="lg:px-20"></Hero>
           <BusinessSummery></BusinessSummery>
-          <BackToTopButton></BackToTopButton>
+          {/* <BackToTopButton></BackToTopButton> */}
           <Parts></Parts>
           <ReviewCardHome className="lg:px-20"></ReviewCardHome>
 
           <Footer></Footer>
         </div>
+        <MessengerCustomerChat
+          pageId="110439261737875"
+          appId="417660657090210"
+        />
       </Navbar>
-      <MessengerCustomerChat pageId="110439261737875" appId="417660657090210" />
-      ,
     </div>
   );
 };

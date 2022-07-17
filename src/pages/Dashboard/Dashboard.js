@@ -8,6 +8,7 @@ import Footer from "../../shared/Footer";
 import useToken from "../../hooks/useToken";
 import useAdmin from "../../hooks/useAdmin";
 import PageTitle from "../../shared/PageTitle";
+import BackToTopButton from "../../shared/BackToTopButton";
 
 const Dashboard = () => {
   const [user] = useAuthState(auth);
@@ -56,10 +57,18 @@ const Dashboard = () => {
                   <NavLink to="/dashboard/users">Make Admin</NavLink>
                 </li>
               )}
+
+              {admin && (
+                <li>
+                  <NavLink to="/dashboard/add-product">Add Product</NavLink>
+                </li>
+              )}
             </ul>
           </div>
         </div>
+        <BackToTopButton></BackToTopButton>
       </Navbar>
+      <Footer></Footer>
     </div>
   );
 };

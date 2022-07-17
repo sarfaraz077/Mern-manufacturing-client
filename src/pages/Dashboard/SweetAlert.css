@@ -1,0 +1,6 @@
+.swal2-title {
+  background: linear-gradient(to right, #7ed56f, #28b485) !important;
+
+  -webkit-background-clip: text !important;
+  -webkit-text-fill-color: rgba(255, 255, 255, 0) !important;
+}

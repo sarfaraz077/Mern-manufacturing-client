@@ -32,6 +32,7 @@ import RequireAdmin from "./shared/RequireAdmin";
 import Users from "./pages/Dashboard/Users";
 import AddProduct from "./pages/Dashboard/AddProduct";
 import PaymentProduct from "./pages/Dashboard/PaymentProduct";
+import ManageAllOrders from "./pages/Dashboard/ManageAllOrders";
 
 function App() {
   // for top loading bar:
@@ -102,6 +103,15 @@ function App() {
             ></Route>
 
             <Route
+              path="manage-orders"
+              element={
+                <RequireAdmin>
+                  <ManageAllOrders></ManageAllOrders>
+                </RequireAdmin>
+              }
+            ></Route>
+
+            <Route
               path="payment/:id"
               element={<PaymentProduct></PaymentProduct>}
             ></Route>
@@ -117,6 +127,7 @@ function App() {
               </RequireAuth>
             }
           ></Route>
+          <Route path="/contact" element={<Contact></Contact>}></Route>
 
           <Route path="*" element={<NotFound></NotFound>}></Route>
         </Routes>

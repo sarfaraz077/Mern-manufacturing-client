@@ -82,6 +82,12 @@ const Navbar = ({ children }) => {
                   Blogs
                 </NavLink>
               </li>
+
+              <li>
+                <NavLink to="/contact" className="rounded-lg ">
+                  Contact
+                </NavLink>
+              </li>
               {!user ? (
                 <li>
                   <NavLink to="/login" className="rounded-lg ">
@@ -171,6 +177,12 @@ const Navbar = ({ children }) => {
               </NavLink>
             </li>
           )}
+
+          <li>
+            <NavLink to="/contact" className="rounded-lg ">
+              Contact
+            </NavLink>
+          </li>
 
           <li>
             <DarkMode></DarkMode>

@@ -38,7 +38,7 @@ const Users = () => {
 
   return (
     <div>
-      <div class="overflow-x-auto ">
+      <div class="overflow-x-auto w-lg mt-20 lg:mt-100">
         <table class="table w-full ">
           <thead>
             <tr>

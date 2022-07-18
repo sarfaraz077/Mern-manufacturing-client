@@ -6,27 +6,6 @@ import { FaQuoteLeft, FaQuoteRight } from "react-icons/fa";
 import auth from "../../firebase/firebase.init";
 
 const SingleReview = ({ review }) => {
-  // getting form update user photo and show it to the reviewCard:
-  // const [users, setUsers] = useState([]);
-  // const [user] = useAuthState(auth);
-
-  // useEffect(() => {
-  //   fetch(`https://dry-garden-16157.herokuapp.com/user/${user?.email}`, {
-  //     method: "GET",
-  //     headers: {
-  //       "content-type": "application/json",
-  //       authorization: `Bearer ${localStorage.getItem("accessToken")}`,
-  //     },
-  //   })
-  //     .then((res) => res.json())
-  //     .then((data) => {
-  //       setUsers(data);
-  //       console.log(data);
-  //     });
-  // }, [user.email]);
-
-  // console.log(users);
-
   const { ratingNumber, currentEmail, textArea, photo } = review;
   let showStar;
   if (ratingNumber === 1) {

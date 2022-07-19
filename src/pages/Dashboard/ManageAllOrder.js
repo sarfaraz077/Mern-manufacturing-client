@@ -6,7 +6,7 @@ const ManageAllOrder = ({ index, order, refetch }) => {
   const { email, paid, _id, product } = order;
 
   const handleDeleteOrder = (_id) => {
-    const url = `http://localhost:4000/delete-order/${_id}`;
+    const url = `https://dry-garden-16157.herokuapp.com/delete-order/${_id}`;
     console.log(url);
     console.log(_id);
 

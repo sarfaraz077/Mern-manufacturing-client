@@ -10,6 +10,7 @@ import BackToTopButton from "../shared/BackToTopButton";
 import { Helmet } from "react-helmet-async";
 import PageTitle from "../shared/PageTitle";
 import MessengerCustomerChat from "react-messenger-customer-chat";
+import GetInTouch from "./GetInTouch";
 // import ScrollToTop from "react-scroll-to-top";
 
 const Home = () => {
@@ -24,6 +25,7 @@ const Home = () => {
           {/* <BackToTopButton></BackToTopButton> */}
           <Parts></Parts>
           <ReviewCardHome className="lg:px-20"></ReviewCardHome>
+          <GetInTouch></GetInTouch>
 
           <Footer></Footer>
         </div>

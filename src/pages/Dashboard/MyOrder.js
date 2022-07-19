@@ -30,7 +30,7 @@ const MyOrder = ({ order, index, refetch }) => {
       confirmButtonText: "Yes, delete it!",
     }).then((result) => {
       if (result.isConfirmed) {
-        fetch(`http://localhost:4000/orders-part/${_id}`, {
+        fetch(`https://dry-garden-16157.herokuapp.com/orders-part/${_id}`, {
           method: "DELETE",
           headers: {
             "content-type": "application/json",

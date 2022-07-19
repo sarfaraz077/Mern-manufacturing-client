@@ -6,7 +6,7 @@ import ManageAllOrder from "./ManageAllOrder";
 const ManageAllOrders = () => {
   //   const [orders, setOrders] = useState([]);
   //   useEffect(() => {
-  //     fetch("http://localhost:4000/manage-orders", {
+  //     fetch("https://dry-garden-16157.herokuapp.com/manage-orders", {
   //       method: "GET",
   //       headers: {
   //         "content-type": "application/json",
@@ -24,7 +24,7 @@ const ManageAllOrders = () => {
     isLoading,
     refetch,
   } = useQuery("manage-orders", () =>
-    fetch("http://localhost:4000/manage-orders", {
+    fetch("https://dry-garden-16157.herokuapp.com/manage-orders", {
       method: "GET",
       headers: {
         "content-type": "application/json",

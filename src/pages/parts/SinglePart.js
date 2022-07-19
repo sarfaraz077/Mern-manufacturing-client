@@ -51,12 +51,15 @@ const SinglePart = () => {
 
     if (singlePart?.MinimumOrder > quantity) {
       toast.error(
-        `Sorry ! ${user?.displayName} you have to order minimum quantity ${singlePart?.MinimumOrder}`
+        `Sorry ! ${user?.email} you have to order minimum quantity ${singlePart?.MinimumOrder}`
       );
       // event.target means select the whole form:
       event.target.reset();
     }
 
+    if (singlePart?.stock < quantity) {
+      toast.error(`Sorry! ${user?.email} we don't have ${quantity} items`);
+    }
     if (singlePart?.MinimumOrder <= quantity) {
       setSubmitQuantity(quantity);
       //  event.target means select the whole form:

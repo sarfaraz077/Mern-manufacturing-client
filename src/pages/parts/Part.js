@@ -22,7 +22,7 @@ const Part = ({ part }) => {
           <h2>{description}</h2>
 
           <h2 className="text-xl">
-            price :{" "}
+            price : ${" "}
             <span
               style={{
                 fontSize: "1rem",

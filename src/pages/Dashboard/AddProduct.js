@@ -42,8 +42,8 @@ const AddProduct = () => {
             img: img,
             price: data?.price,
             stock: data?.stock,
-            minimumOrder: data?.minimumOrder,
-            textArea: data?.textArea,
+            MinimumOrder: data?.MinimumOrder,
+            description: data?.description,
             admin: user?.email,
           };
           console.log(addedProductInfo);
@@ -118,12 +118,12 @@ const AddProduct = () => {
               </p>
               <p className="mt-3">
                 <input
-                  {...register("minimumOrder")}
+                  {...register("MinimumOrder")}
                   className="w-full h-10 px-4 text-sm peer bg-gray-100 outline-none "
                   placeholder="Minimum Order"
                   type="text"
                   class="input input-bordered w-full max-w-xs"
-                  name="minimumOrder"
+                  name="MinimumOrder"
                 />
               </p>
 
@@ -139,10 +139,10 @@ const AddProduct = () => {
               </p>
               <p className="mt-3">
                 <textarea
-                  {...register("textArea")}
+                  {...register("description")}
                   class="textarea textarea-primary"
-                  placeholder="Bio"
-                  name="textArea"
+                  placeholder="Description"
+                  name="description"
                 ></textarea>
               </p>
 

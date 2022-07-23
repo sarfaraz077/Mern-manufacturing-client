@@ -6,7 +6,7 @@ const Hero = () => {
   return (
     <>
       <div class="hero min-h-screen ">
-        <div class="hero-content flex-col-reverse gap-7 lg:flex-row-reverse">
+        <div class="hero-content flex-col-reverse gap-10 lg:flex-row-reverse">
           <img src={hero} class="lg:max-w-lg " alt="" />
           <div>
             <TypeWriter typing={1}>
@@ -16,18 +16,16 @@ const Hero = () => {
                 data-aos-delay="1000"
                 data-aos-duration="1000"
               >
-                Box Office News!
+                Get Your Desire Product
               </h1>
             </TypeWriter>
             <p
-              className="text-xl mb-3"
+              className="text-xl mb-3 mt-3"
               data-aos="fade-right"
               data-aos-delay="700"
               data-aos-duration="800"
             >
-              Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda
-              excepturi exercitationem quasi. In deleniti eaque aut repudiandae
-              et a id nisi.
+              We have all kind of tool for managing your work
             </p>
             <button
               class="btn btn-primary"

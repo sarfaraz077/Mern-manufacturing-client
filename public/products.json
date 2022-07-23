@@ -25,5 +25,23 @@
     "stock": "500",
     "Minimum order": "10",
     "img": "https://i.ibb.co/4sbwWz9/pd3.png"
+  },
+  {
+    "id": 4,
+    "description": "Helmet is a mechanical equipment that works by pushing the water toward the surface instead of pulling it.",
+    "name": "Helmet",
+    "price": "$201",
+    "stock": "200",
+    "Minimum order": "10",
+    "img": "https://i.ibb.co/BGYKH9H/helmet-1.png"
+  },
+  {
+    "id": 5,
+    "description": "Silencer is a mechanical equipment that works by pushing the water toward the surface instead of pulling it.",
+    "name": "Helmet",
+    "price": "$201",
+    "stock": "200",
+    "Minimum order": "10",
+    "img": "https://i.ibb.co/wYxv8Pb/exhaust-system-suzuki-motorcycle-muffler-honda-xr-series-muffler-1.png"
   }
 ]

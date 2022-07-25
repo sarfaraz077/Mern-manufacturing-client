@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
+import emailjs from "@emailjs/browser";
 import Card from "react-animated-3d-card";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { TbBrandTelegram } from "react-icons/tb";
@@ -9,6 +10,7 @@ import { Typewriter, useTypewriter, Cursor } from "react-simple-typewriter";
 
 const GetInTouch = () => {
   const [user] = useAuthState(auth);
+  const form = useRef();
   const { text } = useTypewriter({
     words: ["touch", "connect"],
     loop: "1",
@@ -16,7 +18,25 @@ const GetInTouch = () => {
   });
 
   // const [submitLoading, setSubmitLoading] = useState(false);
-  const handleMessageSubmit = () => {
+  const sendEmail = (event) => {
+    event.preventDefault();
+
+    // for sending email:
+    emailjs
+      .sendForm(
+        "service_q0vasps",
+        "template_mbbkouk",
+        form.current,
+        "hFFjSSMaoe6QmaHSE"
+      )
+      .then(
+        (result) => {
+          console.log(result.text);
+        },
+        (error) => {
+          console.log(error.text);
+        }
+      );
     const name = document.getElementById("text").value;
     const email = document.getElementById("email").value;
 
@@ -27,11 +47,12 @@ const GetInTouch = () => {
         },
         position: "middle",
         icon: "success",
-        title: `${user?.email} we received your message`,
+        title: `${user?.email ? user?.email : ""} we received your message`,
         showConfirmButton: false,
         timer: 1500,
       });
     }
+    event.target.reset();
   };
 
   return (
@@ -50,7 +71,11 @@ const GetInTouch = () => {
           {text}
         </span>{" "}
       </h1>
-      <div className=" lg:px-20 flex flex-col items-center justify-center">
+      <form
+        className=" lg:px-20 flex flex-col items-center justify-center"
+        ref={form}
+        onSubmit={sendEmail}
+      >
         <input
           type="text"
           placeholder="Name"
@@ -64,17 +89,19 @@ const GetInTouch = () => {
           placeholder="Email"
           class="input w-full max-w-md my-2"
           id="email"
+          name="email"
         />
         <textarea
           class="textarea textarea-bordered h-[10rem]  my-2 w-full max-w-md"
           placeholder="Message"
+          name="message"
         ></textarea>
         <div>
-          <button className="btn btn-xl" onClick={handleMessageSubmit}>
+          <button className="btn btn-xl">
             Send <TbBrandTelegram className="mx-1"></TbBrandTelegram>
           </button>
         </div>
-      </div>
+      </form>
     </div>
   );
 };
